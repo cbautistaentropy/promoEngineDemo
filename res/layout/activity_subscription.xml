@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"  >
+    
+    <LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:padding="8dp"  >
+    
+    <TextView
+        android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INFORMATION"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+   <LinearLayout
+        android:id="@+id/llPromo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvPromo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Promo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+       <TextView
+            android:id="@+id/tvPromoValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXY" />
+            
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_gray" />
+        
+    </LinearLayout>
+    
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    <LinearLayout
+        android:id="@+id/llExpiryDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvExpiryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expiry Date"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvExpiryDateValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    <LinearLayout
+        android:id="@+id/llIsExpired"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvIsExpired"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expired"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvIsExpiredValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    <LinearLayout
+        android:id="@+id/llCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Code"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:id="@+id/tvCodeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXY" />
+        
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_gray" />
+        
+    </LinearLayout>
+    
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    
+    <LinearLayout
+        android:id="@+id/llSubscription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvSubs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subscription Date"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvSubsDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    <TextView
+         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRIZES"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    
+    <LinearLayout
+        android:id="@+id/llRedeemed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvRedeemed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redeemed"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvRedeemedValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    
+    <LinearLayout
+        android:id="@+id/llRedeemItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redeemed Item"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvRedeemItemValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    <LinearLayout
+        android:id="@+id/llRedemptionDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvRedemptionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redemption Date"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvRedemptionDateValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+     <LinearLayout
+        android:id="@+id/llBranch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvBranch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Branch"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+       <TextView
+            android:id="@+id/tvBranchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXY" />
+            
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_gray" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+	</LinearLayout>
+</ScrollView>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/WhiteSmoke" >
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" >
+	
+	    <TextView
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="15dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="PERSONAL INFORMATION" />
+	
+	   <View
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlName"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvName"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Name"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+		        
+	        <EditText
+	            android:padding="10dp"
+	            android:id="@+id/etName"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvName"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlBdate"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvBdate"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Birthdate"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+		        
+	        <TextView
+	            android:padding="10dp"
+	            android:id="@+id/tvBdateValue"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvBdate"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlGender"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvGender"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Gender"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+		        
+	        <TextView
+	            android:padding="10dp"
+	            android:id="@+id/tvGenderValue"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvGender"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlLocation"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvLocation"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Location"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+		        
+	        <Spinner
+	            android:padding="10dp"
+	            android:id="@+id/etLocationValue"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvLocation"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlEmail"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvEmail"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Email"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+		        
+	        <EditText
+	            android:inputType="textEmailAddress"
+	            android:padding="10dp"
+	            android:id="@+id/etEmail"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvEmail"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+    	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+        <RelativeLayout
+            android:id="@+id/rlMobileNumber"
+	        android:layout_width="match_parent"
+	   	 	android:layout_height="wrap_content"
+	    	android:background="#ffffff">
+        
+	        <TextView
+	            android:id="@+id/tvMobileNumber"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentBottom="true"
+	            android:padding="10dp"
+	            android:text="Mobile Number"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="#000" />
+	        
+	        <EditText
+	            android:inputType="phone"
+	            android:padding="10dp"
+	            android:id="@+id/etMobileNumber"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"
+	            android:layout_toRightOf="@id/tvMobileNumber"
+	            android:textColor="@color/gray"
+	            android:background="@android:color/transparent" 
+	            android:textSize="9pt" />
+        
+    	</RelativeLayout>
+    	
+        <View
+            android:layout_marginLeft="5dp"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:background="#e6e6e6" />
+        
+	</LinearLayout>
+</ScrollView>

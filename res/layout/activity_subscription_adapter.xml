@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:id="@+id/llDetails">
+
+        <TextView
+           android:layout_margin="8dp"
+            android:id="@+id/tvPromoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Promo"
+            android:textSize="7pt"
+            android:textColor="@color/black" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+         
+       <TextView
+           android:layout_margin="5dp"
+            android:id="@+id/tvSubsId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXY"
+            android:textColor="@color/gray" />
+            
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_gray" />
+        
+</LinearLayout>

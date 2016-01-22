@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/lvSurveys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
+    <Button 
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textColor="#146ab8"
+        android:text="Submit Answer"
+        android:id="@+id/submitAnswer"
+        android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+   		android:gravity="center"
+   		android:layout_gravity="center"/>
+
+</LinearLayout>
