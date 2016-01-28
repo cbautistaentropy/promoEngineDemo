@@ -125,7 +125,7 @@ public class MyGcmListenerService extends GcmListenerService {
 
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.app_logo)
+                .setSmallIcon(R.drawable.logo)
                 .setContentTitle("Hype Demo")
                 .setContentText(message)
                 .setAutoCancel(true)

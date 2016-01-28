@@ -1,5 +1,6 @@
 package com.entropy.promoenginedemoapp;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -37,6 +38,7 @@ import com.entropy.promoenginedemoapp.gcm.QuickstartPreferences;
 import com.entropy.promoenginedemoapp.gcm.RegistrationIntentService;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.iid.InstanceID;
 
 public class SecondActivity extends BaseActivity implements HypeListener {
 
@@ -169,6 +171,19 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 		   .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 		       public void onClick(DialogInterface dialog, int id) {
 		    	   hypeSDK.unlinkAccount();
+		    	   Thread thread = new Thread(new Runnable() {
+		  			 @Override
+		  		     public void run() {
+		  				 try {
+		  						InstanceID iid = InstanceID.getInstance(getApplicationContext());
+		  						iid.deleteToken("885631035018","GCM");
+		  						iid.deleteInstanceID();
+		  					} catch (IOException e) {
+		  						e.printStackTrace();
+		  					}
+		  			 }
+		  		});
+		  		thread.start();
 				   startActivity(new Intent(SecondActivity.this, RegistrationActivity.class));
 				   finish();
 		       }

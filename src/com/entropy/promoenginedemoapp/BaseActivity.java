@@ -26,7 +26,6 @@ import android.widget.TextView;
 
 import com.entropy.hypesdk.HypeSDK;
 
-
 public class BaseActivity extends Activity {
 	
 	public SimpleDateFormat df1 = new SimpleDateFormat("MMMM/dd/yyyy");
