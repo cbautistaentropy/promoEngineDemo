@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypeBranch;
+import com.entropy.hypesdk.model.HypeItem;
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.hypesdk.model.HypeSubscription;
 import com.entropy.promoenginedemoapp.BaseActivity;
@@ -21,7 +22,8 @@ public class SubscriptionAdapter extends BaseAdapter {
 
 	private ArrayList<HypeSubscription> myList = new ArrayList<HypeSubscription>();
 	private Context context;
-	public static HypeBranch hypeBranch;
+//	public static HypeBranch hypeBranch;
+	public static ArrayList<HypeItem> redeemedItems;
 	 
 	public SubscriptionAdapter(Context context, ArrayList<HypeSubscription> myList) {
 		this.myList.clear();
@@ -57,7 +59,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 		if (convertView == null) {
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			//inflater.inflate(R.layout.row, parent, false);
-			convertView = inflater.inflate(R.layout.activity_subscription_adapter, parent, false);
+			convertView = inflater.inflate(R.layout.adapter_subscription, parent, false);
 			viewHolder = new ViewHolder();
 			
 			viewHolder.name = (TextView) convertView.findViewById(R.id.tvPromoName);
@@ -78,6 +80,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 				@Override
 				public void onClick(View v) {
 					if(myList.get(position).getPromo() != null) {
+						redeemedItems = myList.get(position).getItems();
 						Intent intent = new Intent(context, SubscriptionActivity.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						intent.putExtra("id", myList.get(position).getId());
@@ -86,7 +89,11 @@ public class SubscriptionAdapter extends BaseAdapter {
 					    intent.putExtra("redeemed", myList.get(position).isRedeemed());
 					    intent.putExtra("promoId", myList.get(position).getPromo().getId());
 					    intent.putExtra("expiryDate", myList.get(position).getPromo().getEndDuration().toString());
-					    intent.putExtra("redeemedItem", myList.get(position).getItem().getName());
+//					    String itemsName = "";
+//					    for(int a = 0;a < myList.get(position).getItems().size(); a++) {
+//					    	itemsName = itemsName + ", " +  myList.get(position).getItems().get(a).getName();
+//					    }
+//					    intent.putExtra("redeemedItem", itemsName);
 					    if(myList.get(position).getRedemptionDate() != null) {
 					    	intent.putExtra("redemptionDate", myList.get(position).getRedemptionDate().toString());
 					    } else {

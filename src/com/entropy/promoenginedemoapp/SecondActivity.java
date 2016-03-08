@@ -28,6 +28,7 @@ import com.entropy.hypesdk.HypeListener;
 import com.entropy.hypesdk.HypeSDK;
 import com.entropy.hypesdk.model.HypeBranch;
 import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.hypesdk.model.HypeSubscription;
 import com.entropy.hypesdk.model.HypeSurvey;
@@ -339,7 +340,6 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 
 	@Override
 	public void inRangePromosUpdate(final ArrayList<HypePromo> promos) {
-		//Log.d("BeamSDK", promos.size() + " <<<inRangePromosUpdate ");
 				lvInRanges.post(new Runnable() {
 		    	    public void run() {
 		    	    	if (lvInRanges.getAdapter() == null) {
@@ -393,14 +393,13 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 	}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, HypeItem item,
+	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> item,
 			String branchId) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void getPromoFromQRCodeCompletion(ArrayList<HypeItem> prizes,
+	public void getPromoFromQRCodeCompletion(HypePrizeGroup prizes,
 			HypePromo promo, HypeBranch branch) {
 		// TODO Auto-generated method stub
 		

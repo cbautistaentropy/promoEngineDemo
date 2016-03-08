@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.promoenginedemoapp.BaseActivity;
 import com.entropy.promoenginedemoapp.ItemImageActivity;
 import com.entropy.promoenginedemoapp.R;
 
@@ -19,11 +20,13 @@ public class ItemListAdapter extends BaseAdapter {
 	private ArrayList<HypeItem> myList = new ArrayList<HypeItem>();
 	private LayoutInflater mInflater;
 	private Context context;
+	private String prizeGroupId = "";
 	
-	public ItemListAdapter(Context context, ArrayList<HypeItem> myList) {
+	public ItemListAdapter(Context context, ArrayList<HypeItem> myList, String prizeGroupId) {
 		this.myList	 = myList;
 	    this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.context = context;
+		this.prizeGroupId = prizeGroupId;
 	}
 
 	@Override
@@ -51,10 +54,11 @@ public class ItemListAdapter extends BaseAdapter {
 		final ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.activity_item_list_adapter, null);
+			convertView = mInflater.inflate(R.layout.adapter_item_list, null);
 			viewHolder = new ViewHolder();
 			
-			viewHolder.name = (TextView) convertView.findViewById(R.id.name);
+			viewHolder.name = (TextView) convertView.findViewById(R.id.tvItemName);
+			viewHolder.count = (TextView) convertView.findViewById(R.id.tvItemCount);
 			
 			convertView.setTag(viewHolder);
 		} else {
@@ -63,6 +67,7 @@ public class ItemListAdapter extends BaseAdapter {
 		
 		if(myList.size() > 0) {
 			viewHolder.name.setText(myList.get(position).getName());
+			viewHolder.count.setText("Max Redemption: " + BaseActivity.hypeSDK.getMaxRedemptionForItem(prizeGroupId, myList.get(position).getId()));
 			convertView.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
@@ -80,5 +85,6 @@ public class ItemListAdapter extends BaseAdapter {
 	
 	class ViewHolder {
 		 TextView name;
+		 TextView count;
 	}
 }

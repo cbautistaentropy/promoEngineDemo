@@ -18,14 +18,13 @@
         android:textSize="8pt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Information" />
+        android:text="INFORMATION" />
     
     <LinearLayout 
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
     	android:orientation="horizontal"
-    	android:background="@color/white"
-    	>
+    	android:background="@color/white">
         
         <TextView
             android:layout_margin="10dp"
@@ -346,21 +345,6 @@
         android:layout_height="1dp"
         android:background="#e6e6e6" />
      
-      <TextView
-       android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prizes" />
-    
-    <ListView
-        android:id="@+id/prizes"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
-    
-     
      <TextView
         android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
@@ -368,7 +352,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subscriptions" />
+        android:text="SUBSCRIPTION" />
     
     <ListView
         android:id="@+id/subscriptions"
@@ -382,7 +366,21 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Branches" />
+        android:text="PRIZE GROUPS" />
+    
+    <ListView
+        android:id="@+id/prizes"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    
+    <TextView
+       android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BRANCHES" />
     
     <ListView
         android:id="@+id/branches"

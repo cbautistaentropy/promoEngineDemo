@@ -4,27 +4,29 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.entropy.hypesdk.model.HypeBranch;
-import com.entropy.promoenginedemoapp.BranchLocationActivity;
+import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.promoenginedemoapp.BaseActivity;
+import com.entropy.promoenginedemoapp.ItemImageActivity;
 import com.entropy.promoenginedemoapp.R;
 
-public class NameListAdapter extends BaseAdapter {
-	
-	private ArrayList<HypeBranch> myList;
+public class RedeemedItemsListAdapter extends BaseAdapter{
+
+	private ArrayList<HypeItem> myList;
 	private LayoutInflater mInflater;
 	private Context context;
-	
-	public NameListAdapter(Context context, ArrayList<HypeBranch> myList) {
+	private String subsId = "";
+	 
+	public RedeemedItemsListAdapter(Context context, String subsId, ArrayList<HypeItem> myList) {
 		this.myList	 = myList;
 	    this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.context = context;
+		this.subsId = subsId;
 	}
 
 	@Override
@@ -42,7 +44,7 @@ public class NameListAdapter extends BaseAdapter {
 		return position;
 	}
 	
-	public void updateAdapter(ArrayList<HypeBranch> results) {
+	public void updateAdapter(ArrayList<HypeItem> results) {
 		this.myList = results;
         notifyDataSetChanged();
 	}
@@ -52,10 +54,11 @@ public class NameListAdapter extends BaseAdapter {
 		final ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.adapter_name, null);
+			convertView = mInflater.inflate(R.layout.adapter_redeemed_items, null);
 			viewHolder = new ViewHolder();
 			
-			viewHolder.name = (TextView) convertView.findViewById(R.id.name);
+			viewHolder.name = (TextView) convertView.findViewById(R.id.itemName);
+			viewHolder.count = (TextView) convertView.findViewById(R.id.itemCount);
 			
 			convertView.setTag(viewHolder);
 		} else {
@@ -63,25 +66,18 @@ public class NameListAdapter extends BaseAdapter {
 		}
 		
 		if(myList.size() > 0) {
-			Log.d("BeamSDK", myList.get(position).getName() + " " + myList.get(position).getId());
 			viewHolder.name.setText(myList.get(position).getName());
+			viewHolder.count.setText(BaseActivity.hypeSDK.getRedeemedQuantityForItem(subsId, myList.get(position).getId()) + "");
 			
 			convertView.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
 				public void onClick(View v) {
-					if(myList.get(position).getLocation() != null) {
-						Intent intent = new Intent(context, BranchLocationActivity.class);
-						intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-						intent.putExtra("branchName", myList.get(position).getName());
-						intent.putExtra("lat", myList.get(position).getLocation().getLatitude());
-						intent.putExtra("longi", myList.get(position).getLocation().getLongitude());
-						if(myList.get(position).getPolygon() != null) {
-							intent.putExtra("polygon", myList.get(position).getPolygon().toString());
-						}
-						intent.putExtra("accuracy", myList.get(position).getRadius()+"");
-						context.startActivity(intent);
-					}
+					Intent intent = new Intent(context, ItemImageActivity.class);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					intent.putExtra("name", myList.get(position).getName());
+					intent.putExtra("image", myList.get(position).getImage());
+					context.startActivity(intent);
 				}
 			});
 		}
@@ -91,6 +87,7 @@ public class NameListAdapter extends BaseAdapter {
 	
 	class ViewHolder {
 		 TextView name;
+		 TextView count;
 	}
 
 }

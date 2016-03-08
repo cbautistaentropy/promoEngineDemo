@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+    
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INFORMATION"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+   <LinearLayout
+        android:id="@+id/llName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+       <TextView
+            android:id="@+id/tvNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXY" />
+        
+    </LinearLayout>
+    
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+    <LinearLayout
+        android:id="@+id/llCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total items per Redemption"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <TextView
+            android:layout_marginStart="10dp"
+            android:id="@+id/tvCountValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+  
+    <TextView
+         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ITEMS"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <ListView 
+        android:id="@+id/lvItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    
+</LinearLayout>

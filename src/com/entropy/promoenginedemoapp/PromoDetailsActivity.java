@@ -7,18 +7,20 @@ import java.util.Date;
 import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.promoenginedemoapp.adapter.InRangeAdapter;
-import com.entropy.promoenginedemoapp.adapter.ItemListAdapter;
 import com.entropy.promoenginedemoapp.adapter.NameListAdapter;
+import com.entropy.promoenginedemoapp.adapter.PrizeGroupAdapter;
 import com.entropy.promoenginedemoapp.adapter.SubscriptionAdapter;
-
 
 public class PromoDetailsActivity extends BaseActivity {
 
@@ -66,6 +68,7 @@ public class PromoDetailsActivity extends BaseActivity {
 		branches = (ListView) findViewById(R.id.branches);
 		subscriptions = (ListView) findViewById(R.id.subscriptions);
 		
+		//setListViewHeightBasedOnChildren(prizes);
 		//if(getIntent().getExtras() != null) {
 			try {
 				Date startD = df.parse(promo.getStartDuration().toString());
@@ -137,12 +140,12 @@ public class PromoDetailsActivity extends BaseActivity {
 				branches.setAdapter(adap);
 			}
 			
-			if(InRangeAdapter.listItems.size() > 0) {
+			if(InRangeAdapter.listPrizeGroups.size() > 0) {
 				if (prizes.getAdapter() == null) {
-					ItemListAdapter adap2 = new ItemListAdapter(PromoDetailsActivity.this, InRangeAdapter.listItems);
+					PrizeGroupAdapter adap2 = new PrizeGroupAdapter(PromoDetailsActivity.this, InRangeAdapter.listPrizeGroups);
 					prizes.setAdapter(adap2);
 	    		} else {
-	    		    ((ItemListAdapter)prizes.getAdapter()).updateAdapter(InRangeAdapter.listItems);
+	    		    ((PrizeGroupAdapter)prizes.getAdapter()).updateAdapter(InRangeAdapter.listPrizeGroups);
 	    		}
 			}
 		//}

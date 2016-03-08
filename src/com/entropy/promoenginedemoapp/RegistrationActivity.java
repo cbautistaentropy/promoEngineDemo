@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.entropy.hypesdk.HypeListener;
 import com.entropy.hypesdk.model.HypeBranch;
 import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.hypesdk.model.HypeSubscription;
 import com.entropy.hypesdk.model.HypeSurvey;
@@ -218,7 +219,7 @@ public class RegistrationActivity extends BaseActivity implements HypeListener {
 	}
 
 	@Override
-	public void getPromoFromQRCodeCompletion(ArrayList<HypeItem> prizes,
+	public void getPromoFromQRCodeCompletion(HypePrizeGroup prizes,
 			HypePromo promo, HypeBranch branch) {}
 
 	@Override
@@ -249,7 +250,7 @@ public class RegistrationActivity extends BaseActivity implements HypeListener {
 	public void redemptionForPromo(HypePromo promo, HypeItem item) {}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, HypeItem item,
+	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> item,
 			String branchId) {}
 
 }

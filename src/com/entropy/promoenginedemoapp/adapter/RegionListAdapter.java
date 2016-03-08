@@ -48,7 +48,7 @@ public class RegionListAdapter extends BaseAdapter {
 		final ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.activity_region_list_adapter, null);
+			convertView = mInflater.inflate(R.layout.adapter_region_list, null);
 			viewHolder = new ViewHolder();
 			
 			viewHolder.name = (TextView) convertView.findViewById(R.id.tvPrizeName);

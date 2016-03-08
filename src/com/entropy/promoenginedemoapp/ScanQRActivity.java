@@ -6,14 +6,17 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 
 import com.entropy.hypesdk.HypeListener;
 import com.entropy.hypesdk.model.HypeBranch;
 import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.hypesdk.model.HypeSubscription;
 import com.entropy.hypesdk.model.HypeSurvey;
@@ -28,7 +31,6 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_scan_qr);
-		//hypeSDK = new HypeSDK(getApplicationContext(), ScanQRActivity.this);
 		imageButton.setVisibility(View.VISIBLE);
 		imageButton.setImageDrawable(getResources().getDrawable(R.drawable.left_white));
 		imageButton.setOnClickListener(new View.OnClickListener() {
@@ -54,12 +56,27 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
             if (resultCode == RESULT_OK) {
                 String contents = intent.getStringExtra("SCAN_RESULT");
                 pDialog = ProgressDialog.show(ScanQRActivity.this, null, "Loading ...");
-                hypeSDK.getPromoFromQRCode(contents, this);
-               // new GetPromoFromQRCode(contents).execute((Void) null);
+                new GetPromoFromQRCode(contents, this).execute((Void) null);
             } else if (resultCode == RESULT_CANCELED) {
             	finish();
             }
         }
+	}
+	
+	class GetPromoFromQRCode extends AsyncTask<Void, Void, Void> {
+		
+		String contents = "";
+		HypeListener listener;
+		public GetPromoFromQRCode (String contents, HypeListener listener) {
+			this.contents = contents;
+			this.listener = listener;
+		}
+		
+		@Override
+		protected Void doInBackground(Void... params) {
+			hypeSDK.getPromoFromQRCode(contents, listener);
+			return null;
+		}
 	}
 
 	@Override
@@ -89,15 +106,14 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 	    });
 	}
 
-	public static ArrayList<HypeItem> prizesFound = new ArrayList<HypeItem>();
+	public static HypePrizeGroup prizeGroupFound = new HypePrizeGroup();
 	public static HypePromo promoFound = new HypePromo();
 	public static HypeBranch branchFound = new HypeBranch();
 	
 	@Override
-	public void getPromoFromQRCodeCompletion(ArrayList<HypeItem> prizes,
-			HypePromo promo, HypeBranch branch) {
+	public void getPromoFromQRCodeCompletion(HypePrizeGroup prizeGroup, HypePromo promo, HypeBranch branch) {
 		pDialog.dismiss();
-		prizesFound = prizes;
+		prizeGroupFound = prizeGroup;
 		promoFound = promo;
 		branchFound = branch;
 		finish();
@@ -129,6 +145,7 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 	public void redemptionForPromo(HypePromo promo, HypeItem item) {}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, HypeItem item,
+	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> item,
 			String branchId) {}
+
 }

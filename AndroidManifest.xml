@@ -74,7 +74,9 @@
 
         <meta-data
             android:name="com.entropy.hypesdk.API_KEY"
-            android:value="a818ee80-1417-48c4-bf2e-3a5d869996d2" />
+             android:value="f4c65073-5edf-4a11-a45e-e48174f2b931"  />
+                  <!--   android:value="a818ee80-1417-48c4-bf2e-3a5d869996d2"/> -->
+        
         
         <activity
             android:name=".SecondActivity"
@@ -141,13 +143,10 @@
 
         <activity
             android:name=".PromoDetailsActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BranchLocationActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SubscriptionActivity"
             android:screenOrientation="portrait" >
@@ -160,23 +159,19 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".DisplayAllPromo"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ItemImageActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UpdateProfileActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SurveyActivity"
-            android:label="@string/title_activity_survey" >
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".SurveyAdapter"
-            android:label="@string/title_activity_survey_adapter" >
-        </activity>
+            android:name=".PrizeGroupListActivity"
+            android:screenOrientation="portrait" />
         
         <service
             android:name="ph.entropy.beamsdk.GeofenceTriggeredListener"

@@ -23,7 +23,7 @@
 	        android:layout_marginLeft="10dp"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="In-Range Promos"
+	        android:text="IN-RANGE PROMOS"
 	        android:textSize="8pt" />
 	    
 	    <ListView 
@@ -44,7 +44,7 @@
 	        android:layout_marginLeft="10dp"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Subscriptions"
+	        android:text="PROMO INBOX"
 	        android:textSize="8pt" />
 	    
 	    <ListView 
@@ -67,7 +67,7 @@
 	    android:layout_marginLeft="10dp"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:text="Actions"
+	    android:text="ACTIONS"
 		android:textSize="8pt" />
 		        
     <ScrollView 

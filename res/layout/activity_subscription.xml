@@ -3,21 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"  >
+    android:padding="8dp">
     
     <LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:orientation="vertical"
-	    android:padding="8dp"  >
+	    android:orientation="vertical" >
     
     <TextView
         android:layout_marginBottom="10dp"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="INFORMATION"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INFORMATION"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
     
    <LinearLayout
         android:id="@+id/llPromo"
@@ -252,7 +251,7 @@
         android:background="#e6e6e6" />
     
     
-    <LinearLayout
+    <!-- <LinearLayout
         android:id="@+id/llRedeemItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -280,7 +279,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         
-    </LinearLayout>
+    </LinearLayout> -->
     
     <View
         android:layout_width="match_parent"
@@ -343,6 +342,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_weight="1"/> 
+            
        <TextView
             android:id="@+id/tvBranchName"
             android:layout_width="wrap_content"
@@ -361,6 +361,20 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#e6e6e6" />
+    
+  <TextView
+         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REDEEMED ITEMS"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+  
+    <ListView 
+        android:id="@+id/lvRedeemedItems"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
     
 	</LinearLayout>
 </ScrollView>

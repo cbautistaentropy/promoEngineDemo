@@ -15,18 +15,18 @@ import com.entropy.hypesdk.model.HypeBranch;
 import com.entropy.hypesdk.model.HypeItem;
 import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
+import com.entropy.promoenginedemoapp.PrizeGroupListActivity;
 import com.entropy.promoenginedemoapp.PromoDetailsActivity;
 import com.entropy.promoenginedemoapp.R;
 
-public class InRangeAdapter extends BaseAdapter{
+public class PrizeGroupAdapter extends BaseAdapter{
 
-	public static ArrayList<HypeBranch> listBranches = new ArrayList<HypeBranch>();
-	public static ArrayList<HypePrizeGroup> listPrizeGroups = new ArrayList<HypePrizeGroup>();
-	private List<HypePromo> myList;
+	public static ArrayList<HypeItem> items = new ArrayList<HypeItem>();
+	private List<HypePrizeGroup> myList;
 	private LayoutInflater mInflater;
 	private Context context;
 	 
-	public InRangeAdapter(Context context, List<HypePromo> myList) {
+	public PrizeGroupAdapter(Context context, List<HypePrizeGroup> myList) {
 		this.myList	 = myList;
 	    this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.context = context;
@@ -47,7 +47,7 @@ public class InRangeAdapter extends BaseAdapter{
 		return position;
 	}
 	
-	public void updateAdapter(ArrayList<HypePromo> results) {
+	public void updateAdapter(ArrayList<HypePrizeGroup> results) {
 		this.myList = results;
         notifyDataSetChanged();
 	}
@@ -74,28 +74,11 @@ public class InRangeAdapter extends BaseAdapter{
 				
 				@Override
 				public void onClick(View v) {
-					listBranches.clear();
-					Intent intent = new Intent(context, PromoDetailsActivity.class);
-					PromoDetailsActivity.promo = myList.get(position);
-					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-					for(int a = 0; a < myList.get(position).getBranches().size(); a++) {
-						if(myList.get(position).getBranches().get(a).getName() != null) {
-							listBranches.add(myList.get(position).getBranches().get(a));
-						}
-					}
-					//listBranches = myList.get(position).getBranches();
-//					listPrizeGroups = myList.get(position).
-//					intent.putExtra("id", myList.get(position).getId());
-//					intent.putExtra("name", myList.get(position).getName());
-//					intent.putExtra("type", myList.get(position).getType());
-//					intent.putExtra("start", myList.get(position).getStartDuration().toString());
-//				    intent.putExtra("end", myList.get(position).getEndDuration().toString());
-//					intent.putExtra("concurrencyLimit", myList.get(position).getConcurrency());
-//					intent.putExtra("allowedToSubscribe", myList.get(position).isAllowedToSubscribe());
-//					intent.putExtra("content", myList.get(position).getContent());
-//					intent.putStringArrayListExtra("hours", myList.get(position).getHours());
-//					intent.putStringArrayListExtra("days", myList.get(position).getDays());
-//					intent.putStringArrayListExtra("weekdays", myList.get(position).getWeekdays());
+					items = myList.get(position).getItems();
+					Intent intent = new Intent(context, PrizeGroupListActivity.class);
+					intent.putExtra("name", myList.get(position).getName());
+					intent.putExtra("redemptionCount", myList.get(position).getRedemptionCount() + "");
+					intent.putExtra("id", myList.get(position).getId());
 					context.startActivity(intent);
 				}
 			});

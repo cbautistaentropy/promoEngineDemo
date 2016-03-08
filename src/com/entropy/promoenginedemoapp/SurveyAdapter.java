@@ -54,7 +54,7 @@ public class SurveyAdapter extends BaseAdapter {
 		final ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.activity_survey_adapter, null);
+			convertView = mInflater.inflate(R.layout.adapter_survey, null);
 			viewHolder = new ViewHolder();
 			viewHolder.layout = (LinearLayout) convertView.findViewById(R.id.btns);
 			viewHolder.question = (TextView) convertView.findViewById(R.id.tvQuestion);
