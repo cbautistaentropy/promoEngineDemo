@@ -352,7 +352,7 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 
 	@Override
 	public void outOfRange(HypePromo promo) {
-		Log.d("BeamSDK", "outOfRange promo : " + promo.getName());
+		Log.d("HypeSDK", "outOfRange promo : " + promo.getName());
 	}
 
 	@Override
