@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:background="@color/white"
-    android:id="@+id/llDetails">
+    android:id="@+id/llDetails"
+    android:padding="5dp">
 
         <TextView
            android:layout_margin="8dp"

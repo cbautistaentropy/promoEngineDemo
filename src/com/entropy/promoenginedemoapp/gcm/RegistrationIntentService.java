@@ -32,7 +32,7 @@ import com.google.android.gms.iid.InstanceID;
 
 public class RegistrationIntentService extends IntentService {
 
-    private static final String TAG = "BeamSDK";
+    private static final String TAG = "HypeSDK";
     private static final String[] TOPICS = {"global"};
 
     public RegistrationIntentService() {

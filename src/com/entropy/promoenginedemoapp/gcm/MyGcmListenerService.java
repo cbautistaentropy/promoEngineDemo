@@ -43,7 +43,7 @@ import com.google.android.gms.gcm.GcmListenerService;
 
 public class MyGcmListenerService extends GcmListenerService {
 
-    private static final String TAG = "BeamSDK";
+    private static final String TAG = "HypeSDK";
 
     /**
      * Called when message is received.
@@ -55,7 +55,6 @@ public class MyGcmListenerService extends GcmListenerService {
     // [START receive_message]
     @Override
     public void onMessageReceived(String from, final Bundle data) {
-    	//Bundle[{promo_id=5602497d21b409455c6ebb34, task=redeemedItem, message=You have redeemed prize Apple Watch, collapse_key=do_not_collapse, item_id=5609e7fb21b4095befd12f98}]
         final String message = data.getString("message");
         Log.d(TAG, "From: " + from);
         Log.d(TAG, "Message: " + message);

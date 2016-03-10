@@ -21,7 +21,7 @@ public class SubscriptionActivity extends BaseActivity {
 	private LinearLayout llPromo;
 	private LinearLayout llCode;
 	private LinearLayout llRedemptionDate;
-//	private LinearLayout llRedeemedItem;
+	private LinearLayout llRedeemedItem;
 	private LinearLayout llBranch;
 	private LinearLayout llSubsDate;
 	private TextView tvPromo;
@@ -33,7 +33,7 @@ public class SubscriptionActivity extends BaseActivity {
 //	private TextView redeemedItem;
 	private TextView tvExpiryDate;
 	private TextView expired;
-	private ListView lvRedeemedItems;
+//	private ListView lvRedeemedItems;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class SubscriptionActivity extends BaseActivity {
 		tvExpiryDate = (TextView) findViewById(R.id.tvExpiryDateValue);
 		expired = (TextView) findViewById(R.id.tvIsExpiredValue);
 		llRedemptionDate = (LinearLayout) findViewById(R.id.llRedemptionDate);
-//		llRedeemedItem = (LinearLayout) findViewById(R.id.llRedeemItem);
-		lvRedeemedItems = (ListView) findViewById(R.id.lvRedeemedItems);
+		llRedeemedItem = (LinearLayout) findViewById(R.id.llRedeemedItems);
+//		lvRedeemedItems = (ListView) findViewById(R.id.lvRedeemedItems);
 		llBranch = (LinearLayout) findViewById(R.id.llBranch);
 		llSubsDate = (LinearLayout) findViewById(R.id.llSubscription);
 		llPromo = (LinearLayout) findViewById(R.id.llPromo);
@@ -61,11 +61,11 @@ public class SubscriptionActivity extends BaseActivity {
 		tvSubsDate = (TextView) findViewById(R.id.tvSubsDate);
 		redeemed = (TextView) findViewById(R.id.tvRedeemedValue);
 		
-		if (lvRedeemedItems.getAdapter() == null) {
-			lvRedeemedItems.setAdapter(new RedeemedItemsListAdapter(SubscriptionActivity.this, getIntent().getExtras().getString("id"), SubscriptionAdapter.redeemedItems));
-    	} else {
-			 ((RedeemedItemsListAdapter)lvRedeemedItems.getAdapter()).updateAdapter(SubscriptionAdapter.redeemedItems);
-		}
+//		if (lvRedeemedItems.getAdapter() == null) {
+//			lvRedeemedItems.setAdapter(new RedeemedItemsListAdapter(SubscriptionActivity.this, getIntent().getExtras().getString("id"), SubscriptionAdapter.redeemedItems));
+//    	} else {
+//			 ((RedeemedItemsListAdapter)lvRedeemedItems.getAdapter()).updateAdapter(SubscriptionAdapter.redeemedItems);
+//		}
 		if(getIntent().getExtras() != null) {
 			if(getIntent().getExtras().getString("code").equals("")) {
 				llCode.setVisibility(View.GONE);
@@ -77,12 +77,12 @@ public class SubscriptionActivity extends BaseActivity {
 //				redeemedItem.setText(getIntent().getExtras().getString("redeemedItem"));
 				
 				llBranch.setVisibility(View.VISIBLE);
-				lvRedeemedItems.setVisibility(View.VISIBLE);
+				llRedeemedItem.setVisibility(View.VISIBLE);
 				llRedemptionDate.setVisibility(View.VISIBLE);
 				llSubsDate.setVisibility(View.GONE);
 			} else {
 				llBranch.setVisibility(View.GONE);
-				lvRedeemedItems.setVisibility(View.GONE);
+				llRedeemedItem.setVisibility(View.GONE);
 				llRedemptionDate.setVisibility(View.GONE);
 				llSubsDate.setVisibility(View.VISIBLE);
 			}
@@ -150,6 +150,16 @@ public class SubscriptionActivity extends BaseActivity {
 				public void onClick(View v) {
 					Intent intent = new Intent(getApplicationContext(), QRCodeActivity.class);
 					intent.putExtra("code", getIntent().getExtras().getString("code"));
+					startActivity(intent);
+				}
+			});
+			
+			llRedeemedItem.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getApplicationContext(), RedeemedItemListActivity.class);
+					intent.putExtra("id",  getIntent().getExtras().getString("id"));
 					startActivity(intent);
 				}
 			});

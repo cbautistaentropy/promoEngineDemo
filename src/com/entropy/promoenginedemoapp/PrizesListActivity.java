@@ -9,8 +9,8 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,7 +54,8 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 					//TODO!
 				} else {
 					pDialog = ProgressDialog.show(PrizesListActivity.this, null, "Loading ...");
-			    	redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
+//			    	redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
+					new RedeemPromo().execute((Void) null);
 				}
 
 			}
@@ -82,6 +83,17 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 			}
 		}
 		prizes.setAdapter(new PrizesListAdapter(getApplicationContext(), items, PrizesListActivity.this));
+	}
+	
+	
+	class RedeemPromo extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
+			return null;
+		}
+		
 	}
 
 	private void showAlertDialog(String message, String title) {

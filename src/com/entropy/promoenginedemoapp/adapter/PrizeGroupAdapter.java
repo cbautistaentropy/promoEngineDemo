@@ -15,7 +15,7 @@ import com.entropy.hypesdk.model.HypeBranch;
 import com.entropy.hypesdk.model.HypeItem;
 import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
-import com.entropy.promoenginedemoapp.PrizeGroupListActivity;
+import com.entropy.promoenginedemoapp.PrizeGroupActivity;
 import com.entropy.promoenginedemoapp.PromoDetailsActivity;
 import com.entropy.promoenginedemoapp.R;
 
@@ -57,7 +57,7 @@ public class PrizeGroupAdapter extends BaseAdapter{
 		final ViewHolder viewHolder;
 
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.adapter_in_range, null);
+			convertView = mInflater.inflate(R.layout.adapter_name, null);
 			viewHolder = new ViewHolder();
 			
 			viewHolder.name = (TextView) convertView.findViewById(R.id.name);
@@ -75,7 +75,7 @@ public class PrizeGroupAdapter extends BaseAdapter{
 				@Override
 				public void onClick(View v) {
 					items = myList.get(position).getItems();
-					Intent intent = new Intent(context, PrizeGroupListActivity.class);
+					Intent intent = new Intent(context, PrizeGroupActivity.class);
 					intent.putExtra("name", myList.get(position).getName());
 					intent.putExtra("redemptionCount", myList.get(position).getRedemptionCount() + "");
 					intent.putExtra("id", myList.get(position).getId());

@@ -34,7 +34,6 @@ import com.entropy.hypesdk.model.HypeSubscription;
 import com.entropy.hypesdk.model.HypeSurvey;
 import com.entropy.promoenginedemoapp.adapter.InRangeAdapter;
 import com.entropy.promoenginedemoapp.adapter.SubscriptionAdapter;
-import com.entropy.promoenginedemoapp.gcm.GCMSample;
 import com.entropy.promoenginedemoapp.gcm.QuickstartPreferences;
 import com.entropy.promoenginedemoapp.gcm.RegistrationIntentService;
 import com.google.android.gms.common.ConnectionResult;
@@ -56,7 +55,6 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 	public static HypeSurvey surveyFound;
 	
 	private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-	private static final String TAG = "BeamSDK";
 	private BroadcastReceiver mRegistrationBroadcastReceiver;
 	 
 	@Override
@@ -110,13 +108,13 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 			}
 		});
 		llGCM.setVisibility(View.GONE);
-		llGCM.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(SecondActivity.this, GCMSample.class));                                            
-			}
-		});
+//		llGCM.setOnClickListener(new View.OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				startActivity(new Intent(SecondActivity.this, GCMSample.class));                                            
+//			}
+//		});
 		hypeSDK.addListener(this);
 		if(RegistrationActivity.registrationCalled) {
 			registerToken();
@@ -300,7 +298,7 @@ public class SecondActivity extends BaseActivity implements HypeListener {
                 apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
                         .show();
             } else {
-                Log.d(TAG, "This device is not supported.");
+                Log.d("DemoApp", "This device is not supported.");
                 finish();
             }
             return false;
@@ -340,17 +338,16 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 
 	@Override
 	public void inRangePromosUpdate(final ArrayList<HypePromo> promos) {
-				lvInRanges.post(new Runnable() {
-		    	    public void run() {
-		    	    	if (lvInRanges.getAdapter() == null) {
-		    	    		InRangeAdapter adap = new InRangeAdapter(getApplicationContext(), promos);
-							lvInRanges.setAdapter(adap);
-						} else {
-						    ((InRangeAdapter)lvInRanges.getAdapter()).updateAdapter(promos);
-						}
-		    	    }
-		    	});
-		
+		lvInRanges.post(new Runnable() {
+    	    public void run() {
+    	    	if (lvInRanges.getAdapter() == null) {
+    	    		InRangeAdapter adap = new InRangeAdapter(getApplicationContext(), promos);
+					lvInRanges.setAdapter(adap);
+				} else {
+				    ((InRangeAdapter)lvInRanges.getAdapter()).updateAdapter(promos);
+				}
+    	    }
+    	});
 	}
 
 	@Override

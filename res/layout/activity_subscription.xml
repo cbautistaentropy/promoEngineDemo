@@ -362,7 +362,41 @@
         android:layout_height="1dp"
         android:background="#e6e6e6" />
     
-  <TextView
+    <LinearLayout
+        android:id="@+id/llRedeemedItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:padding="8dp" >
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redeemed Items"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000" />
+        
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/> 
+            
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow_gray" />
+        
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e6e6e6" />
+    
+ <!--  <TextView
          android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
             android:layout_marginStart="10dp"
@@ -374,7 +408,7 @@
     <ListView 
         android:id="@+id/lvRedeemedItems"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="200dp"/> -->
     
 	</LinearLayout>
 </ScrollView>

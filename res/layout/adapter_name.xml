@@ -3,20 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:padding="5dp">
     
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#e6e6e6" />
-    
-	    <LinearLayout 
-	        android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:background="@color/white"
-		    android:orientation="horizontal">
-	    
-	    <TextView
+      <TextView
 	        android:layout_margin="8dp"
 	        android:id="@+id/name"
 	        android:layout_width="wrap_content"
@@ -34,10 +24,5 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:src="@drawable/right_arrow_gray" />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#e6e6e6" />
     
 </LinearLayout>

@@ -74,8 +74,8 @@
 
         <meta-data
             android:name="com.entropy.hypesdk.API_KEY"
-             android:value="f4c65073-5edf-4a11-a45e-e48174f2b931"  />
-                  <!--   android:value="a818ee80-1417-48c4-bf2e-3a5d869996d2"/> -->
+             android:value="f4c65073-5edf-4a11-a45e-e48174f2b931"/>
+        <!--  android:value="f4c65073-a818ee80-1417-48c4-bf2e-3a5d869996d2-4a11-a45e-e48174f2b931"  /> -->
         
         
         <activity
@@ -170,7 +170,19 @@
             android:name=".SurveyActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".PrizeGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PrizeGroupListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SubscriptionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BranchListActivity"
+            android:screenOrientation="portrait" />
+       	<activity
+            android:name=".RedeemedItemListActivity"
             android:screenOrientation="portrait" />
         
         <service

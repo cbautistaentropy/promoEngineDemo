@@ -12,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypeBranch;
-import com.entropy.hypesdk.model.HypeItem;
 import com.entropy.hypesdk.model.HypePrizeGroup;
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.promoenginedemoapp.PromoDetailsActivity;
@@ -83,19 +82,6 @@ public class InRangeAdapter extends BaseAdapter{
 							listBranches.add(myList.get(position).getBranches().get(a));
 						}
 					}
-					//listBranches = myList.get(position).getBranches();
-//					listPrizeGroups = myList.get(position).
-//					intent.putExtra("id", myList.get(position).getId());
-//					intent.putExtra("name", myList.get(position).getName());
-//					intent.putExtra("type", myList.get(position).getType());
-//					intent.putExtra("start", myList.get(position).getStartDuration().toString());
-//				    intent.putExtra("end", myList.get(position).getEndDuration().toString());
-//					intent.putExtra("concurrencyLimit", myList.get(position).getConcurrency());
-//					intent.putExtra("allowedToSubscribe", myList.get(position).isAllowedToSubscribe());
-//					intent.putExtra("content", myList.get(position).getContent());
-//					intent.putStringArrayListExtra("hours", myList.get(position).getHours());
-//					intent.putStringArrayListExtra("days", myList.get(position).getDays());
-//					intent.putStringArrayListExtra("weekdays", myList.get(position).getWeekdays());
 					context.startActivity(intent);
 				}
 			});

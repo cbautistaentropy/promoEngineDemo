@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,9 +31,9 @@ public class PromoDetailsActivity extends BaseActivity {
 	private TextView end;
 	private TextView concurrencyLimit;
 	private TextView allowedToSubscribe;
-	private ListView prizes;
-	private ListView branches;
-	private ListView subscriptions;
+	private LinearLayout llPrizeGroup;
+	private LinearLayout llBranches;
+	private LinearLayout llSubscriptions;
 	private LinearLayout llContent;
 	private LinearLayout llHours;
 	private LinearLayout llWeekDays;
@@ -64,9 +65,9 @@ public class PromoDetailsActivity extends BaseActivity {
 		end = (TextView) findViewById(R.id.end);
 		concurrencyLimit = (TextView) findViewById(R.id.concurrencyLimit);
 		allowedToSubscribe = (TextView) findViewById(R.id.allowedToSubscribe);
-		prizes = (ListView) findViewById(R.id.prizes);
-		branches = (ListView) findViewById(R.id.branches);
-		subscriptions = (ListView) findViewById(R.id.subscriptions);
+		llPrizeGroup = (LinearLayout) findViewById(R.id.llPrizeGroups);
+		llBranches = (LinearLayout) findViewById(R.id.llBranches);
+		llSubscriptions = (LinearLayout) findViewById(R.id.llSubscription);
 		
 		//setListViewHeightBasedOnChildren(prizes);
 		//if(getIntent().getExtras() != null) {
@@ -128,26 +129,53 @@ public class PromoDetailsActivity extends BaseActivity {
 				allowedToSubscribe.setText("No");
 			}
 			
-			if (subscriptions.getAdapter() == null) {
-				SubscriptionAdapter subsAdap = new SubscriptionAdapter(PromoDetailsActivity.this, hypeSDK.getAllSubscriptionByPromoId(promo.getId()));
-    			subscriptions.setAdapter(subsAdap);
-    		} else {
-    		    ((SubscriptionAdapter)subscriptions.getAdapter()).updateAdapter(hypeSDK.getAllSubscriptionByPromoId(promo.getId()));
-    		}
+			llSubscriptions.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(PromoDetailsActivity.this, SubscriptionListActivity.class));
+				}
+			});
+			InRangeAdapter.listPrizeGroups = promo.getPrizegroups();
+			llPrizeGroup.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(PromoDetailsActivity.this, PrizeGroupListActivity.class));
+				}
+			});
+			llBranches.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(PromoDetailsActivity.this, BranchListActivity.class));
+				}
+			});
 			
-			if(InRangeAdapter.listBranches.size() > 0) {
-				NameListAdapter adap = new NameListAdapter(getApplicationContext(), InRangeAdapter.listBranches);
-				branches.setAdapter(adap);
-			}
+			Log.d("Test", InRangeAdapter.listPrizeGroups.toString());
+
+
 			
-			if(InRangeAdapter.listPrizeGroups.size() > 0) {
-				if (prizes.getAdapter() == null) {
-					PrizeGroupAdapter adap2 = new PrizeGroupAdapter(PromoDetailsActivity.this, InRangeAdapter.listPrizeGroups);
-					prizes.setAdapter(adap2);
-	    		} else {
-	    		    ((PrizeGroupAdapter)prizes.getAdapter()).updateAdapter(InRangeAdapter.listPrizeGroups);
-	    		}
-			}
+//			if (subscriptions.getAdapter() == null) {
+//				SubscriptionAdapter subsAdap = new SubscriptionAdapter(PromoDetailsActivity.this, hypeSDK.getAllSubscriptionByPromoId(promo.getId()));
+//    			subscriptions.setAdapter(subsAdap);
+//    		} else {
+//    		    ((SubscriptionAdapter)subscriptions.getAdapter()).updateAdapter(hypeSDK.getAllSubscriptionByPromoId(promo.getId()));
+//    		}
+//			
+//			if(InRangeAdapter.listBranches.size() > 0) {
+//				NameListAdapter adap = new NameListAdapter(getApplicationContext(), InRangeAdapter.listBranches);
+//				branches.setAdapter(adap);
+//			}
+//			
+//			if(InRangeAdapter.listPrizeGroups.size() > 0) {
+//				if (prizes.getAdapter() == null) {
+//					PrizeGroupAdapter adap2 = new PrizeGroupAdapter(PromoDetailsActivity.this, InRangeAdapter.listPrizeGroups);
+//					prizes.setAdapter(adap2);
+//	    		} else {
+//	    		    ((PrizeGroupAdapter)prizes.getAdapter()).updateAdapter(InRangeAdapter.listPrizeGroups);
+//	    		}
+//			}
 		//}
 	}
 	
