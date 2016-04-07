@@ -47,7 +47,6 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		ctx = getApplicationContext();
 		sharedPref =  getSharedPreferences("promoEngine", Context.MODE_PRIVATE);
-		hypeSDK = new HypeSDK(getApplicationContext(), BaseActivity.this);
 		ActionBar mActionBar = getActionBar();
 		mActionBar.setDisplayShowHomeEnabled(false);
 		mActionBar.setDisplayShowTitleEnabled(false);

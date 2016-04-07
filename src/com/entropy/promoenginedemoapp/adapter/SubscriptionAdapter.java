@@ -99,6 +99,11 @@ public class SubscriptionAdapter extends BaseAdapter {
 					    } else {
 					    	intent.putExtra("redemptionDate","");
 					    }
+					    if(myList.get(position).getData() != null) {
+					    	intent.putExtra("data", myList.get(position).getData().toString());
+					    } else {
+					    	intent.putExtra("data","");
+					    }
 					    intent.putExtra("branchName", myList.get(position).getRedemptionBranch().getName());
 					    if(myList.get(position).getRedemptionBranch().getLocation() != null) {
 					    	intent.putExtra("lat", myList.get(position).getRedemptionBranch().getLocation().getLatitude());

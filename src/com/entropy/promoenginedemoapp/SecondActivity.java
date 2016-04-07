@@ -61,6 +61,7 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_list);
+
 		activity = (Activity) SecondActivity.this;
 		imageButton.setVisibility(View.INVISIBLE);
 		imageButton.setImageDrawable(getResources().getDrawable(R.drawable.left_white));
@@ -324,7 +325,9 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 	        		try {
 	        			try {
 	        				UpdateProfileActivity.lastInrangePromoId = promo.getId().toString();
-	        				displayDialog(decodeBase64(promo.getContent()));
+	        				if(promo.getContent() != null) {
+	        					displayDialog(decodeBase64(promo.getContent()));
+	        				}
 						} catch (Exception e) {
 							e.printStackTrace();
 						}

@@ -8,20 +8,13 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.promoenginedemoapp.adapter.InRangeAdapter;
-import com.entropy.promoenginedemoapp.adapter.NameListAdapter;
-import com.entropy.promoenginedemoapp.adapter.PrizeGroupAdapter;
-import com.entropy.promoenginedemoapp.adapter.SubscriptionAdapter;
 
 public class PromoDetailsActivity extends BaseActivity {
 
@@ -151,10 +144,7 @@ public class PromoDetailsActivity extends BaseActivity {
 					startActivity(new Intent(PromoDetailsActivity.this, BranchListActivity.class));
 				}
 			});
-			
-			Log.d("Test", InRangeAdapter.listPrizeGroups.toString());
-
-
+		
 			
 //			if (subscriptions.getAdapter() == null) {
 //				SubscriptionAdapter subsAdap = new SubscriptionAdapter(PromoDetailsActivity.this, hypeSDK.getAllSubscriptionByPromoId(promo.getId()));

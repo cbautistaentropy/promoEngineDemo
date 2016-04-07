@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.entropy.hypesdk.model.HypePromo;
 import com.entropy.promoenginedemoapp.adapter.InRangeAdapter;
-import com.entropy.promoenginedemoapp.adapter.RedeemedItemsListAdapter;
-import com.entropy.promoenginedemoapp.adapter.SubscriptionAdapter;
 
 public class SubscriptionActivity extends BaseActivity {
 	
@@ -24,6 +21,7 @@ public class SubscriptionActivity extends BaseActivity {
 	private LinearLayout llRedeemedItem;
 	private LinearLayout llBranch;
 	private LinearLayout llSubsDate;
+	private LinearLayout llData;
 	private TextView tvPromo;
 	private TextView tvCode;
 	private TextView tvSubsDate;
@@ -54,6 +52,7 @@ public class SubscriptionActivity extends BaseActivity {
 //		lvRedeemedItems = (ListView) findViewById(R.id.lvRedeemedItems);
 		llBranch = (LinearLayout) findViewById(R.id.llBranch);
 		llSubsDate = (LinearLayout) findViewById(R.id.llSubscription);
+		llData = (LinearLayout) findViewById(R.id.llData);
 		llPromo = (LinearLayout) findViewById(R.id.llPromo);
 		llCode = (LinearLayout) findViewById(R.id.llCode);
 		tvPromo = (TextView) findViewById(R.id.tvPromoValue);
@@ -78,10 +77,12 @@ public class SubscriptionActivity extends BaseActivity {
 				
 				llBranch.setVisibility(View.VISIBLE);
 				llRedeemedItem.setVisibility(View.VISIBLE);
+				llData.setVisibility(View.VISIBLE);
 				llRedemptionDate.setVisibility(View.VISIBLE);
 				llSubsDate.setVisibility(View.GONE);
 			} else {
 				llBranch.setVisibility(View.GONE);
+				llData.setVisibility(View.GONE);
 				llRedeemedItem.setVisibility(View.GONE);
 				llRedemptionDate.setVisibility(View.GONE);
 				llSubsDate.setVisibility(View.VISIBLE);
@@ -150,6 +151,16 @@ public class SubscriptionActivity extends BaseActivity {
 				public void onClick(View v) {
 					Intent intent = new Intent(getApplicationContext(), QRCodeActivity.class);
 					intent.putExtra("code", getIntent().getExtras().getString("code"));
+					startActivity(intent);
+				}
+			});
+			
+			llData.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getApplicationContext(), DataActivity.class);
+					intent.putExtra("data", getIntent().getExtras().getString("data"));
 					startActivity(intent);
 				}
 			});

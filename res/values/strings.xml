@@ -9,7 +9,7 @@
 
     <string-array name="gender_arrays">
         <item>Male</item>
-,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <item>Female</item>
+,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <item>Female</item>
     </string-array>
     <string-array name="country_code">
         <item> Afghanistan (+93) </item>
@@ -276,5 +276,6 @@
     <string name="title_activity_prizes_list_adapter">PrizesListAdapter</string>
     <string name="title_activity_survey">SurveyActivity</string>
     <string name="title_activity_survey_adapter">SurveyAdapter</string>
+    <string name="title_activity_data">DataActivity</string>
 
 </resources>
