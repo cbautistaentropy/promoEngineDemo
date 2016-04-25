@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -54,8 +55,8 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 					//TODO!
 					showAlertDialog("No Items Found", "Failed");
 				} else {
-					pDialog = ProgressDialog.show(PrizesListActivity.this, null, "Loading ...");
-//			    	redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
+					tvActionNext.setEnabled(false);
+					tvActionNext.setTextColor(Color.LTGRAY);
 					new RedeemPromo().execute((Void) null);
 				}
 
@@ -93,6 +94,12 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 		protected Void doInBackground(Void... params) {
 			redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
 			return null;
+		}
+		
+		@Override
+		protected void onPreExecute() {
+			pDialog = ProgressDialog.show(PrizesListActivity.this, null, "Loading ...");
+			super.onPreExecute();
 		}
 		
 	}
@@ -200,6 +207,8 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 	public void failure(String error) {
 		pDialog.dismiss();
 		showAlertDialog(error, "Error");
+		tvActionNext.setEnabled(true);
+		tvActionNext.setTextColor(Color.BLACK);
 	}
 
 	@Override

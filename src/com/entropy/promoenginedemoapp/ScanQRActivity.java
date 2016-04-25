@@ -55,7 +55,6 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 		if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 String contents = intent.getStringExtra("SCAN_RESULT");
-                pDialog = ProgressDialog.show(ScanQRActivity.this, null, "Loading ...");
                 new GetPromoFromQRCode(contents, this).execute((Void) null);
             } else if (resultCode == RESULT_CANCELED) {
             	finish();
@@ -70,6 +69,12 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 		public GetPromoFromQRCode (String contents, HypeListener listener) {
 			this.contents = contents;
 			this.listener = listener;
+		}
+		
+		@Override
+		protected void onPreExecute() {
+			pDialog = ProgressDialog.show(ScanQRActivity.this, null, "Loading ...");
+			super.onPreExecute();
 		}
 		
 		@Override

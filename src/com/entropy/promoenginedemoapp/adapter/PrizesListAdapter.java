@@ -26,7 +26,7 @@ import com.entropy.promoenginedemoapp.ScanQRActivity;
 
 public class PrizesListAdapter extends BaseAdapter {
 
-	private ArrayList<HashMap<String, String>> myList;
+	private ArrayList<HashMap<String, String>> myList = new ArrayList<HashMap<String,String>>();
 	private LayoutInflater mInflater;
 	private Context context;
 	private HypeSDK hypeSDK;

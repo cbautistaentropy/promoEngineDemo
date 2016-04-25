@@ -23,7 +23,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 	private ArrayList<HypeSubscription> myList = new ArrayList<HypeSubscription>();
 	private Context context;
 //	public static HypeBranch hypeBranch;
-	public static ArrayList<HypeItem> redeemedItems;
+	public static ArrayList<HypeItem> redeemedItems = new ArrayList<HypeItem>();
 	 
 	public SubscriptionAdapter(Context context, ArrayList<HypeSubscription> myList) {
 		this.myList.clear();
