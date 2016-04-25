@@ -144,7 +144,7 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setCancelable(false);
 		builder.setTitle("Success");
-		builder.setMessage("You have selected prize(s).");
+		builder.setMessage("You have selected your prize(s).");
 		builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
 				finish();
