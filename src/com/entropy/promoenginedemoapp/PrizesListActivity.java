@@ -52,6 +52,7 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 //				showAlertDialog(prizeGroupId, "");
 				if (items.toString().equals("{}")) {
 					//TODO!
+					showAlertDialog("No Items Found", "Failed");
 				} else {
 					pDialog = ProgressDialog.show(PrizesListActivity.this, null, "Loading ...");
 //			    	redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
@@ -143,7 +144,7 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setCancelable(false);
 		builder.setTitle("Success");
-		builder.setMessage("You have selected " + names + " as your prize.");
+		builder.setMessage("You have selected prize(s).");
 		builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
 				finish();

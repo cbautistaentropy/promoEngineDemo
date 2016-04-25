@@ -177,8 +177,6 @@ public class BaseActivity extends Activity {
 		
 	}
 	
-   
-	
 	public boolean isApplicationSentToBackground(final Context context) {
 		ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 	    List<RunningTaskInfo> tasks = am.getRunningTasks(1);

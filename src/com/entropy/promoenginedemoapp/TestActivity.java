@@ -1,11 +1,20 @@
 package com.entropy.promoenginedemoapp;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.entropy.hypesdk.HypeListener;
 import com.entropy.hypesdk.HypeSDK;
+import com.entropy.hypesdk.model.HypeBranch;
+import com.entropy.hypesdk.model.HypeItem;
+import com.entropy.hypesdk.model.HypePrizeGroup;
+import com.entropy.hypesdk.model.HypePromo;
+import com.entropy.hypesdk.model.HypeSubscription;
+import com.entropy.hypesdk.model.HypeSurvey;
 
 public class TestActivity extends Activity {
 	
@@ -27,5 +36,4 @@ public class TestActivity extends Activity {
 			}, 2000);
 		}
 	}
-
 }
