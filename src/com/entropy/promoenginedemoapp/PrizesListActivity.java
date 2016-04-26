@@ -57,6 +57,11 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 				} else {
 					tvActionNext.setEnabled(false);
 					tvActionNext.setTextColor(Color.LTGRAY);
+					pDialog = new ProgressDialog(PrizesListActivity.this);
+					pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+					pDialog.setMessage("Loading ...");
+					pDialog.setCancelable(false);
+					pDialog.show();
 					new RedeemPromo().execute((Void) null);
 				}
 
@@ -95,13 +100,6 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 			redeeemPromo(items, ScanQRActivity.prizeGroupFound.getId().toString());
 			return null;
 		}
-		
-		@Override
-		protected void onPreExecute() {
-			pDialog = ProgressDialog.show(PrizesListActivity.this, null, "Loading ...");
-			super.onPreExecute();
-		}
-		
 	}
 
 	private void showAlertDialog(String message, String title) {
@@ -143,11 +141,11 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 		hypeSDK.redeemPromo(this, ScanQRActivity.promoFound, ScanQRActivity.branchFound.getId(), prizeGroupId, items);
 	}
 
-	private void showSuccessResponse(ArrayList<HypeItem> items) {
-		String names = "";
-		for(int a=0; a < items.size(); a++) {
-			names = names + ", " + items.get(a).getName();
-		}
+	private void showSuccessResponse() {
+//		String names = "";
+//		for(int a=0; a < items.size(); a++) {
+//			names = names + ", " + items.get(a).getName();
+//		}
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setCancelable(false);
 		builder.setTitle("Success");
@@ -214,13 +212,13 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 	@Override
 	public void completion(String result) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> items, String branchId) {
+	public void redeemPromoCompletion(HypePromo promo, String branchId, HypeSubscription subscription) {
+		Log.d("HypeSDK", subscription.getId());
 		pDialog.dismiss();
-		showSuccessResponse(items);
+		showSuccessResponse();
 	}
 
 	@Override

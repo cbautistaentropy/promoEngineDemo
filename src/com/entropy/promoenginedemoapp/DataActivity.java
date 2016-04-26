@@ -21,7 +21,7 @@ public class DataActivity extends BaseActivity {
 		TextView tvData = (TextView) findViewById(R.id.tvData);
 		if(getIntent().getExtras() != null) {
 			try {
-				tvData.setText(new JSONObject(getIntent().getExtras().getString("data")) + "  ");
+				tvData.setText(new JSONObject(getIntent().getExtras().getString("data")).toString(2));
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}

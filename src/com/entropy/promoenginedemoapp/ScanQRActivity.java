@@ -150,7 +150,6 @@ public class ScanQRActivity extends BaseActivity implements HypeListener {
 	public void redemptionForPromo(HypePromo promo, HypeItem item) {}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> item,
-			String branchId) {}
+	public void redeemPromoCompletion(HypePromo promo,String branchId, HypeSubscription subscription) {}
 
 }

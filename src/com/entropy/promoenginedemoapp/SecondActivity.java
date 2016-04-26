@@ -393,8 +393,7 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 	}
 
 	@Override
-	public void redeemPromoCompletion(HypePromo promo, ArrayList<HypeItem> item,
-			String branchId) {
+	public void redeemPromoCompletion(HypePromo promo, String branchId, HypeSubscription subscription) {
 		// TODO Auto-generated method stub
 	}
 

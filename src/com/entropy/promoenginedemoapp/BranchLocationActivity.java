@@ -34,21 +34,21 @@ public class BranchLocationActivity extends BaseActivity implements OnMapReadyCa
 	
 	@Override
 	public void onMapReady(GoogleMap map) {
-		LatLng loc = new LatLng(getIntent().getExtras().getDouble("lat"), 
-				getIntent().getExtras().getDouble("longi"));
-		map.getUiSettings().setMapToolbarEnabled(false);
-        map.setMyLocationEnabled(false);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 16));
-        map.getUiSettings().setMyLocationButtonEnabled(false);
-        
-		if(getIntent().getExtras().getString("polygon") == null || getIntent().getExtras().getString("polygon").equals("")) {
-			map.addCircle(new CircleOptions().center(loc)
-        			.radius(Double.valueOf(getIntent().getExtras().getString("accuracy")))
-        			.fillColor(Color.argb(20, 0, 80, 270))
-        			.strokeWidth(2)
-					.strokeColor(Color.MAGENTA));
-		} else {
-			try {
+		try {
+			LatLng loc = new LatLng(getIntent().getExtras().getDouble("lat"), 
+					getIntent().getExtras().getDouble("longi"));
+			map.getUiSettings().setMapToolbarEnabled(false);
+	        map.setMyLocationEnabled(false);
+	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 16));
+	        map.getUiSettings().setMyLocationButtonEnabled(false);
+	        
+			if(getIntent().getExtras().getString("polygon") == null || getIntent().getExtras().getString("polygon").equals("")) {
+				map.addCircle(new CircleOptions().center(loc)
+	        			.radius(Double.valueOf(getIntent().getExtras().getString("accuracy")))
+	        			.fillColor(Color.argb(20, 0, 80, 270))
+	        			.strokeWidth(2)
+						.strokeColor(Color.MAGENTA));
+			} else {
 				JSONArray polyArray = new JSONArray(getIntent().getExtras().getString("polygon").toString());
 				latLngDestination = new LatLng[polyArray.length()];
 				
@@ -62,9 +62,9 @@ public class BranchLocationActivity extends BaseActivity implements OnMapReadyCa
 				   .strokeColor(Color.MAGENTA)
 				   .fillColor(Color.argb(20, 0, 80, 270))
 				);
-			} catch (JSONException e) {
-				e.printStackTrace();
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,6 +106,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 					    	intent.putExtra("data","");
 					    }
 					    intent.putExtra("branchName", myList.get(position).getRedemptionBranch().getName());
+					    Log.d("HypeSDK", myList.get(position).getRedemptionBranch().getName() + " <><><><><");
 					    if(myList.get(position).getRedemptionBranch().getLocation() != null) {
 					    	intent.putExtra("lat", myList.get(position).getRedemptionBranch().getLocation().getLatitude());
 							intent.putExtra("longi", myList.get(position).getRedemptionBranch().getLocation().getLongitude());
@@ -113,7 +115,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 							} else {
 								intent.putExtra("polygon", "");
 							}
-							intent.putExtra("accuracy", myList.get(position).getRedemptionBranch().getRadius()+"");
+							intent.putExtra("accuracy", myList.get(position).getRedemptionBranch().getRadius()+ "");
 					    }
 						context.startActivity(intent);
 					}
