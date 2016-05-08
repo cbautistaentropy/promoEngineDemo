@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -53,7 +54,7 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 //				showAlertDialog(prizeGroupId, "");
 				if (items.toString().equals("{}")) {
 					//TODO!
-					showAlertDialog("No Items Found", "Failed");
+					showAlertDialog("No Item Found", "Failed");
 				} else {
 					tvActionNext.setEnabled(false);
 					tvActionNext.setTextColor(Color.LTGRAY);
@@ -64,7 +65,6 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 					pDialog.show();
 					new RedeemPromo().execute((Void) null);
 				}
-
 			}
 		});
 		tvPromoName = (TextView) findViewById(R.id.tvPromoName);
@@ -152,7 +152,7 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 		builder.setMessage("You have selected your prize(s).");
 		builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
-				finish();
+				new Intent(PrizesListActivity.this, SecondActivity.class);
 			}
 		});
 		AlertDialog alert = builder.create();
@@ -216,8 +216,9 @@ public class PrizesListActivity extends BaseActivity implements HypeListener {
 
 	@Override
 	public void redeemPromoCompletion(HypePromo promo, String branchId, HypeSubscription subscription) {
-		Log.d("HypeSDK", subscription.getId());
 		pDialog.dismiss();
+		Log.d("HypeSDK", subscription + " <<<<<");
+		Log.d("HypeSDK", subscription.getId() + " <<<<<");
 		showSuccessResponse();
 	}
 

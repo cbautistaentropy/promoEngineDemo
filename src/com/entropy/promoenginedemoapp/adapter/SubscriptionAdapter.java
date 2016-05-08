@@ -80,7 +80,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 				
 				@Override
 				public void onClick(View v) {
-					if(myList.get(position).getPromo() != null) {
+					if(myList.get(position).getPromo().getId() != null) {
 						redeemedItems = myList.get(position).getItems();
 						Intent intent = new Intent(context, SubscriptionActivity.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -90,6 +90,7 @@ public class SubscriptionAdapter extends BaseAdapter {
 					    intent.putExtra("redeemed", myList.get(position).isRedeemed());
 					    intent.putExtra("promoId", myList.get(position).getPromo().getId());
 					    intent.putExtra("expiryDate", myList.get(position).getPromo().getEndDuration().toString());
+					    
 //					    String itemsName = "";
 //					    for(int a = 0;a < myList.get(position).getItems().size(); a++) {
 //					    	itemsName = itemsName + ", " +  myList.get(position).getItems().get(a).getName();

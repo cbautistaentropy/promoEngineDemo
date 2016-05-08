@@ -19,11 +19,11 @@ public class RedeemedItemListActivity extends BaseActivity {
 		tvActionNext.setVisibility(View.INVISIBLE);
 		
 		final ListView listview = (ListView) findViewById(R.id.myList);
-
-		if (listview.getAdapter() == null) {
-			listview.setAdapter(new RedeemedItemsListAdapter(RedeemedItemListActivity.this, getIntent().getExtras().getString("id"), SubscriptionAdapter.redeemedItems));
-    	} else {
-			 ((RedeemedItemsListAdapter)listview.getAdapter()).updateAdapter(SubscriptionAdapter.redeemedItems);
-		}
+		listview.setAdapter(new RedeemedItemsListAdapter(RedeemedItemListActivity.this, getIntent().getExtras().getString("id"), SubscriptionAdapter.redeemedItems));
+//		if (listview.getAdapter() == null) {
+//			listview.setAdapter(new RedeemedItemsListAdapter(RedeemedItemListActivity.this, getIntent().getExtras().getString("id"), SubscriptionAdapter.redeemedItems));
+//    	} else {
+//			 ((RedeemedItemsListAdapter)listview.getAdapter()).updateAdapter(SubscriptionAdapter.redeemedItems);
+//		}
 	}
 }

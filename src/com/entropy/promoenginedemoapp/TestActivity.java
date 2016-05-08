@@ -1,20 +1,14 @@
 package com.entropy.promoenginedemoapp;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 
-import com.entropy.hypesdk.HypeListener;
-import com.entropy.hypesdk.HypeSDK;
-import com.entropy.hypesdk.model.HypeBranch;
-import com.entropy.hypesdk.model.HypeItem;
-import com.entropy.hypesdk.model.HypePrizeGroup;
-import com.entropy.hypesdk.model.HypePromo;
-import com.entropy.hypesdk.model.HypeSubscription;
-import com.entropy.hypesdk.model.HypeSurvey;
+import com.samskivert.mustache.Mustache;
+import com.samskivert.mustache.Template;
 
 public class TestActivity extends Activity {
 	
@@ -23,17 +17,24 @@ public class TestActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		
-		final HypeSDK sdk = new HypeSDK(getApplicationContext(), this);
-		
-		if(sdk.getRegions().size() > 0) {
-			Log.d("HypeSDK", sdk.getRegions().toString());
-		}  else {
-			new Handler().postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					Log.d("HypeSDK", "handler : " + sdk.getRegions().toString());
-				}
-			}, 2000);
-		}
+//		final HypeSDK sdk = new HypeSDK(getApplicationContext(), this);
+//		
+//		if(sdk.getRegions().size() > 0) {
+//			Log.d("HypeSDK", sdk.getRegions().toString());
+//		}  else {
+//			new Handler().postDelayed(new Runnable() {
+//				@Override
+//				public void run() {
+//					Log.d("HypeSDK", "handler : " + sdk.getRegions().toString());
+//				}
+//			}, 2000);
+//		}
+//		Log.d("HypeSDK", "TestActivity");
+//		String text = "Head over to [BAR] today and get a [freebie] from San Mig Light! {{name}}/{{branch}}";
+//		Template tmpl = Mustache.compiler().compile(text);
+//		Map<String, String> data = new HashMap<String, String>();
+//		data.put("name", "ok");
+//		data.put("branch", "ok again");
+//		Log.d("HypeSDK", tmpl.execute(data));
 	}
 }

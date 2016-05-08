@@ -89,18 +89,22 @@ public class SubscriptionActivity extends BaseActivity {
 			}
 			
 			try {
-				Date expiryDate = df.parse(getIntent().getExtras().getString("expiryDate"));
+				if(getIntent().getExtras().containsKey("expiryDate")) {
+					Date expiryDate = df.parse(getIntent().getExtras().getString("expiryDate"));
+					tvExpiryDate.setText(df2.format(expiryDate));
+					if(new Date().after(expiryDate)) {
+						expired.setText("Yes");
+					} else {
+						expired.setText("No");
+					}
+				}
+				
 				Date subsDate = df.parse(getIntent().getExtras().getString("subsDate"));
 				if(!getIntent().getExtras().getString("redemptionDate").equals("")) {
 					Date redempDate = df.parse(getIntent().getExtras().getString("redemptionDate"));
 					redemptionDate.setText(df2.format(redempDate));
 				}
-				tvExpiryDate.setText(df2.format(expiryDate));
-				if(new Date().after(expiryDate)) {
-					expired.setText("Yes");
-				} else {
-					expired.setText("No");
-				}
+				
 				tvSubsDate.setText(df2.format(subsDate));
 			} catch (ParseException e) {
 				e.printStackTrace();

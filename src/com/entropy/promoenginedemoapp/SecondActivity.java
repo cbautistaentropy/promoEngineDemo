@@ -2,6 +2,8 @@ package com.entropy.promoenginedemoapp;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -355,13 +357,20 @@ public class SecondActivity extends BaseActivity implements HypeListener {
 
 	@Override
 	public void outOfRange(HypePromo promo) {
-		Log.d("HypeSDK", "outOfRange promo : " + promo.getName());
+		Log.d("HypeSDK", "outOfRange promo : " + promo.toString());
 	}
 
 	@Override
 	public void subscriptionUpdate(final ArrayList<HypeSubscription> subscriptions) {
 		lvSubscriptions.post(new Runnable() {
     	    public void run() {
+    	    	Collections.sort(subscriptions, new Comparator<HypeSubscription>() {
+
+					@Override
+					public int compare(HypeSubscription o1, HypeSubscription o2) {
+						 return o1.getSubscriptionDate().compareTo(o2.getSubscriptionDate());
+					}
+				});
     	    	if (lvSubscriptions.getAdapter() == null) {
     	    		lvSubscriptions.setAdapter(new SubscriptionAdapter(SecondActivity.this, subscriptions));
     	    	} else {

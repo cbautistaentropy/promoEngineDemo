@@ -59,18 +59,23 @@ public class UpdateProfileActivity extends BaseActivity {
 			
 			@Override
 			public void onClick(View v) {
-				userData.put("name", etFullname.getText().toString());
-				userData.put("location", BaseActivity.findIdByRegionName(spLocation.getSelectedItem().toString()));
-				userData.put("msisdn", etMobileNumber.getText().toString());
-				userData.put("birthdate", tvBdate.getText().toString());
-				userData.put("gender", tvGender.getText().toString());
-				userData.put("email", etEmail.getText().toString());
-				String response = hypeSDK.updateProfile(userData);
-				if(response.equals("ok")) {
-					finish();
+				if(spLocation.getSelectedItem() != null) {
+					userData.put("name", etFullname.getText().toString());
+					userData.put("location", BaseActivity.findIdByRegionName(spLocation.getSelectedItem().toString()));
+					userData.put("msisdn", etMobileNumber.getText().toString());
+					userData.put("birthdate", tvBdate.getText().toString());
+					userData.put("gender", tvGender.getText().toString());
+					userData.put("email", etEmail.getText().toString());
+					String response = hypeSDK.updateProfile(userData);
+					if(response.equals("ok")) {
+						finish();
+					} else {
+						Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+					}
 				} else {
-					Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "All fields Required", Toast.LENGTH_LONG).show();
 				}
+				
 			}
 		});
 		

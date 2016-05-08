@@ -63,7 +63,7 @@ public class NameListAdapter extends BaseAdapter {
 		}
 		
 		if(myList.size() > 0) {
-			Log.d("BeamSDK", myList.get(position).getName() + " " + myList.get(position).getId());
+//			Log.d("HypeSDK", myList.get(position).getName() + " " + myList.get(position).getId());
 			viewHolder.name.setText(myList.get(position).getName());
 			
 			convertView.setOnClickListener(new View.OnClickListener() {
